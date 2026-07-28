@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo Web Application - Premium interactive developer workspace and analytics dashboard.">
+    <title>Nexus Studio | Interactive Web Application</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="brand-name">Nexus Studio</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#dashboard" class="nav-item active" id="nav-dashboard">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#projects" class="nav-item" id="nav-projects">
+                    <i class="fa-solid fa-cubes"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="#tasks" class="nav-item" id="nav-tasks">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="#analytics" class="nav-item" id="nav-analytics">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#settings" class="nav-item" id="nav-settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-card">
+                    <div class="avatar">W</div>
+                    <div class="user-info">
+                        <span class="user-name">workforwick88</span>
+                        <span class="user-role">Developer</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Bar -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="global-search" placeholder="Search components, tasks, metrics...">
+                </div>
+                <div class="top-actions">
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <button class="icon-btn" id="notif-btn" title="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="badge-dot"></span>
+                    </button>
+                    <button class="btn btn-primary" id="btn-new-project">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>New Project</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Hero Banner -->
+            <section class="hero-section">
+                <div class="hero-text">
+                    <h1>Welcome back, Developer! ðŸš€</h1>
+                    <p>Your interactive showcase repository is active and connected to GitHub.</p>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat-chip">
+                        <i class="fa-solid fa-circle-check text-success"></i>
+                        <span>GitHub Sync Active</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Metrics Cards Grid -->
+            <section class="metrics-grid">
+                <div class="card metric-card">
+                    <div class="metric-icon icon-purple">
+                        <i class="fa-solid fa-code-commit"></i>
+                    </div>
+                    <div class="metric-data">
+                        <span class="metric-title">Total Commits</span>
+                        <h2 class="metric-value" id="val-commits">128</h2>
+                        <span class="metric-change positive"><i class="fa-solid fa-arrow-up"></i> +14% this week</span>
+                    </div>
+                </div>
+
+                <div class="card metric-card">
+                    <div class="metric-icon icon-blue">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <div class="metric-data">
+                        <span class="metric-title">Active Repos</span>
+                        <h2 class="metric-value" id="val-repos">1</h2>
+                        <span class="metric-change positive"><i class="fa-solid fa-arrow-up"></i> workforwick88-boop/demo</span>
+                    </div>
+                </div>
+
+                <div class="card metric-card">
+                    <div class="metric-icon icon-emerald">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="metric-data">
+                        <span class="metric-title">API Requests</span>
+                        <h2 class="metric-value" id="val-requests">4,992</h2>
+                        <span class="metric-change positive"><i class="fa-solid fa-check"></i> Rate Limit OK</span>
+                    </div>
+                </div>
+
+                <div class="card metric-card">
+                    <div class="metric-icon icon-amber">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="metric-data">
+                        <span class="metric-title">Repository Stars</span>
+                        <h2 class="metric-value" id="val-stars">12</h2>
+                        <span class="metric-change positive"><i class="fa-solid fa-arrow-up"></i> +3 today</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Middle Section: Chart & Quick Tasks -->
+            <div class="dashboard-split">
+                <!-- Activity Chart Card -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-chart-area"></i> Commit Activity Overview</h3>
+                        <div class="pill-filters" id="chart-timeframe">
+                            <button class="pill active" data-range="7d">7 Days</button>
+                            <button class="pill" data-range="30d">30 Days</button>
+                            <button class="pill" data-range="1y">1 Year</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="visual-chart" id="visual-chart">
+                            <!-- Bars rendered dynamically via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Task Manager Card -->
+                <div class="card task-card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-list-check"></i> Project Roadmap</h3>
+                        <button class="btn btn-sm btn-secondary" id="btn-add-task"><i class="fa-solid fa-plus"></i> Add</button>
+                    </div>
+                    <div class="task-input-box" id="task-input-container" style="display: none;">
+                        <input type="text" id="task-input" placeholder="Type a task and press Enter...">
+                    </div>
+                    <ul class="task-list" id="task-list">
+                        <li class="task-item completed">
+                            <label class="checkbox-container">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                            </label>
+                            <span class="task-title">Connect GitHub Personal Access Token</span>
+                            <span class="badge badge-success">Done</span>
+                        </li>
+                        <li class="task-item completed">
+                            <label class="checkbox-container">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                            </label>
+                            <span class="task-title">Initialize workforwick88-boop/demo</span>
+                            <span class="badge badge-success">Done</span>
+                        </li>
+                        <li class="task-item">
+                            <label class="checkbox-container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span class="task-title">Build dark glassmorphism dashboard UI</span>
+                            <span class="badge badge-primary">In Progress</span>
+                        </li>
+                        <li class="task-item">
+                            <label class="checkbox-container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span class="task-title">Deploy live GitHub Pages site</span>
+                            <span class="badge badge-warning">Pending</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="app-footer">
+                <p>&copy; 2026 Nexus Studio | Pushed directly to <a href="https://github.com/workforwick88-boop/demo" target="_blank" rel="noopener">github.com/workforwick88-boop/demo</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
